@@ -402,3 +402,32 @@ html.dark {
 }
 
 /* End Info Modal */
+
+
+/* media */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        height: 100%;
+        margin: 20px 0;
+    }
+
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .calculator {
+        max-width: 250px;
+    }
+
+    .side-menu {
+        width: 250px;
+    }
+
+    .stack-steps {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
