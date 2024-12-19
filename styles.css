@@ -1,0 +1,109 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --bg: #d1cccc;
+    --marr: #323232;
+    --active: #504c4c;
+    --hover: #333;
+    --dark-color: #292929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.calculator {
+    border-radius: 10px;
+    position: relative;
+    padding: 20px;
+    max-width: 317px;
+    width: 100%;
+    box-shadow: 0 10px 10px rgb(0, 0, 0, 0.05);
+    background: var(--bg);
+}
+
+.buttons .ac {
+    background: #7b7be9;
+    color: white;
+}
+
+.buttons .delete {
+    background: #d56363;
+    color: white;
+}
+
+.buttons .equal {
+    background: #6dd563;
+    color: white;
+}
+
+.buttons .space {
+    background: rgb(87, 78, 78);
+    color: white;
+}
+
+.buttons .space:disabled {
+    background: #aca8a8;
+    color: white;
+}
+
+.buttons {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    outline: none;
+    border: none;
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 25px;
+    /* width: 100%; */
+    height: 70px;
+    border-radius: 6px;
+    background: var(--white);
+    padding: 0 10px;
+}
+
+.buttons button {
+    border-radius: 6px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    /* width: 60px; */
+    height: 60px;
+}
+
+.buttons button.span-two {
+    grid-column: span 2;
+}
+
+.buttons button.span-four {
+    grid-column: span 4;
+}
+
