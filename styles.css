@@ -140,6 +140,26 @@ h1 {
     color: var(--black);
 }
 
+/* stack */
+.stack ul li {
+    padding: 5px 10px;
+    margin: 5px 0;
+    background-color: var(--marr);
+    color: white;
+    border-radius: 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.stack-steps {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.stack h2 {
+    margin-bottom: 20px;
+}
+
 /* info */
 .info-types {
     margin-right: 20px;

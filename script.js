@@ -16,6 +16,9 @@ let type = "postfix";
 let result = "";
 let expression = "";
 let isEqual = false;
+let step = 1;
+let newStack = false;
+let popped = "";
 
 // document.getElementById("space").disabled = true; //disable space for infix
 
@@ -32,15 +35,17 @@ for (var i = 0; i < types.length; i++) {
       type = "postfix";
       titleType.innerHTML = "Postfix";
       document.getElementById("space").disabled = false;
-    
+      document.getElementById("stack").style.display = "block";
     } else if (this.id == "prefix") {
       type = "prefix";
       titleType.innerHTML = "Prefix";
       document.getElementById("space").disabled = false;
+      document.getElementById("stack").style.display = "block";
     } else {
       type = "infix";
       titleType.innerHTML = "Infix";
       document.getElementById("space").disabled = true;
+      document.getElementById("stack").style.display = "none";
     }
 
     sideMenu.classList.toggle("active");
@@ -54,14 +59,15 @@ buttons.forEach((button) => {
     if (isEqual) {
       result = "";
       isEqual = false;
-
+      newStack = true;
+      popped = ""
     }
 
     try {
       if (value == "=") {
         if (result != "") {
           isEqual = true;
-         
+          newStack = true;
           expression = result;
           if (type == "postfix") {
             result = evaluatePostfix();
@@ -85,6 +91,7 @@ buttons.forEach((button) => {
     } catch {
       result = "Wrong expression.";
       isEqual = true;
+      newStack = true
     }
 
     if (isEqual) {
@@ -107,14 +114,17 @@ function evaluatePostfix() {
     for (o of ops) {
       if (!isNaN(o)) {
         stack.push(parseInt(o));
+        updateStack(stack, "push", '');
       } else {
         const b = stack.pop();
         const a = stack.pop();
         const operate = applyOperator(o, a, b);
+        popped = o;
         if (!operate) {
           return "Invalid expression";
         } else {
           stack.push(applyOperator(o, a, b));
+          updateStack(stack, "push", popped);
         }
       }
     }
@@ -133,15 +143,18 @@ function evaluatePrefix() {
     for (o of ops) {
       if (!isNaN(o)) {
         stack.push(parseInt(o));
+        updateStack(stack, "push", '');
       } else {
         const b = stack.pop();
         const a = stack.pop();
+        popped = o;
         const operate = applyOperator(o, a, b);
 
         if (!operate) {
           return "Invalid expression";
         } else {
           stack.push(applyOperator(o, a, b));
+          updateStack(stack, "push", popped);
         }
       }
     }
@@ -166,6 +179,60 @@ function applyOperator(operator, a, b) {
     default:
       return false;
   }
+}
+
+function updateStack(stack, method, popped = "") {
+  if (newStack) {
+    step = 1;
+    stackList.innerHTML = "";
+    popped = ""
+
+    const div = document.createElement("div");
+    div.setAttribute("class", "stack-step");
+
+    const span = document.createElement("span");
+    span.textContent = "Step " + step++ + ": ";
+
+    const ul = document.createElement("ul");
+
+    const li = document.createElement("li");
+    li.textContent = "Empty Stack";
+    ul.appendChild(li);
+
+    div.appendChild(span);
+    div.appendChild(ul);
+
+    stackList.appendChild(div);
+  }
+
+  if (method == "push") {
+    newStack = false;
+    const div = document.createElement("div");
+    div.setAttribute("class", "stack-step");
+
+    const span = document.createElement("span");
+    span.textContent = "Step " + step++ + ": ";
+
+    if (popped != "") {
+      span.textContent += "(" + popped + ")";
+    }
+
+    const ul = document.createElement("ul");
+
+    stack.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.prepend(li);
+    });
+
+    div.appendChild(span);
+    div.appendChild(ul);
+
+    stackList.appendChild(div);
+  }
+
+  popped = ""
+
 }
 
 // Dark Mode
