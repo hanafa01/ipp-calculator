@@ -43,6 +43,7 @@
 
         <!-- Display -->
         <div class="display-container">
+          <input type="text" class="show-expr" id="show-expr" />
           <input type="text" class="display" id="display" disabled />
         </div>
 
@@ -69,6 +70,42 @@
           <button class="span-four space" id="space" value="space">
             Space
           </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Examples of Prefix and Postfix</h2>
+        </div>
+        <div class="modal-body">
+          <div>
+            <strong>Evaluation Prefix</strong>
+            <p>Expression: + 9 * 2 3</p>
+
+            <i>Steps: 1.</i>Start from the rightmost operand: 9 and * 2 3.
+            <br />
+            <i>Steps: 2.</i>Evaluate * 2 3 → 2 * 3 = 6. <i>Steps: 3.</i>Add 9 +
+            6 = 15.
+            <p>Result: 15</p>
+          </div>
+
+          <br />
+          <br />
+
+          <div>
+            <strong>Evaluation Postfix</strong>
+            <p>Expression: 9 2 3 * +</p>
+
+            <i>Steps: 1.</i>Start with the first operator *: 2 * 3 = 6.
+            <br />
+            <i>Steps: 2.</i>Add 9 + 6 = 15. <i>Steps: 3.</i>Add 9 + 6 = 15.
+            <p>Result: 15</p>
+          </div>
         </div>
       </div>
     </div>
