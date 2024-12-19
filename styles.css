@@ -140,6 +140,47 @@ h1 {
     color: var(--black);
 }
 
+/* Toggle Dark Mode */
+input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: grey;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+label::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: var(--white);
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+input:checked+label {
+    background: var(--marr);
+}
+
+/* End Toggle Dark Mode */
+
 /* Side Menu */
 .side-menu {
     border-radius: 10px 0 0 10px;
@@ -209,3 +250,68 @@ h1 {
 }
 
 /* End Side Menu */
+
+/* Dark Style */
+html.dark {
+    background: var(--dark-color);
+}
+
+.dark .display {
+    background: #292929;
+    color: var(--white);
+}
+
+.dark .side-menu a:hover {
+    background-color: #454545;
+}
+
+.dark .side-menu .type.active-type {
+    background: #606368;
+}
+
+.dark .buttons button {
+    background: var(--dark-color);
+    color: var(--white);
+}
+
+.dark .buttons button:hover {
+    filter: brightness(150%);
+}
+
+.dark .buttons .ac {
+    background: #35355d;
+}
+
+.dark .buttons .delete {
+    background: #914f4f;
+}
+
+.dark .buttons .equal {
+    background: #33602f;
+}
+
+.dark .buttons .space {
+    background: rgb(87, 78, 78);
+}
+
+.dark .buttons .space:hover {
+    color: black;
+}
+
+
+.dark .buttons .space:disabled {
+    background: #aca8a8;
+}
+
+.dark .stack h2 {
+    color: var(--white);
+}
+
+.dark .stack-steps ul li {
+    background: var(--bg);
+    color: var(--dark-color);
+}
+
+.dark .stack-steps span{
+    color: var(--white);
+}
