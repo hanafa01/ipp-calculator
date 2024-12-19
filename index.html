@@ -5,10 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prefix & Postfix Calculator</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
       <div class="calculator">
+        <!-- Header -->
+        <div class="calculator-header">
+          <!-- Side Bar and title-->
+          <div class="left">
+            <a id="toggle-menu"><i class="fa-solid fa-bars"></i></a>
+            <div class="side-menu" id="side-menu">
+              <ul>
+                <li><a class="type" id="infix">Infix</a></li>
+                <li><a class="type active-type" id="postfix">Postfix</a></li>
+                <li><a class="type" id="prefix">Prefix</a></li>
+              </ul>
+            </div>
+            <h1 id="title-type">Postfix</h1>
+          </div>
+          <!-- Toggle and info -->
+          <div class="right">
+          </div>
+        </div>
 
         <!-- Display -->
         <div class="display-container">
