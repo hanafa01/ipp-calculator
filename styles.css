@@ -114,7 +114,7 @@ ul {
     grid-column: span 2;
 }
 
-.buttons button.span-four {
+.buttons .span-four {
     grid-column: span 4;
 }
 
