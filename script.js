@@ -13,7 +13,7 @@ const buttons = document.querySelectorAll("button");
 
 //expression type default
 let type = "postfix";
-let result = "";
+let result = "2 3.1 +";
 let expression = "";
 let isEqual = false;
 let step = 1;
@@ -107,13 +107,14 @@ function evaluateInfix() {
 
 function evaluatePostfix() {
   result = result.trim();
+  console.log(result)
   const stack = [];
   const ops = result.split(" ");
 
   try {
     for (o of ops) {
       if (!isNaN(o)) {
-        stack.push(parseInt(o));
+        stack.push(parseFloat(o));
         updateStack(stack, "push", '');
       } else {
         const b = stack.pop();
@@ -142,7 +143,7 @@ function evaluatePrefix() {
   try {
     for (o of ops) {
       if (!isNaN(o)) {
-        stack.push(parseInt(o));
+        stack.push(parseFloat(o));
         updateStack(stack, "push", '');
       } else {
         const b = stack.pop();
