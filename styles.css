@@ -141,6 +141,13 @@ h1 {
 }
 
 /* stack */
+
+.stack-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .stack ul li {
     padding: 5px 10px;
     margin: 5px 0;
@@ -343,7 +350,7 @@ html.dark {
     color: var(--dark-color);
 }
 
-.dark .stack-steps span{
+.dark .stack-steps span {
     color: var(--white);
 }
 

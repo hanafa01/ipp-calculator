@@ -189,9 +189,14 @@ function updateStack(stack, method, popped = "") {
 
     const div = document.createElement("div");
     div.setAttribute("class", "stack-step");
+    
+    const div2 = document.createElement("div");
+    div2.setAttribute("class", "grid");
 
     const span = document.createElement("span");
     span.textContent = "Step " + step++ + ": ";
+
+    div2.appendChild(span);
 
     const ul = document.createElement("ul");
 
@@ -199,7 +204,7 @@ function updateStack(stack, method, popped = "") {
     li.textContent = "Empty Stack";
     ul.appendChild(li);
 
-    div.appendChild(span);
+    div.appendChild(div2);
     div.appendChild(ul);
 
     stackList.appendChild(div);
