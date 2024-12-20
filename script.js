@@ -13,7 +13,7 @@ const buttons = document.querySelectorAll("button");
 
 //expression type default
 let type = "postfix";
-let result = "2 3.1 +";
+let result = "";
 let expression = "";
 let isEqual = false;
 let step = 1;
